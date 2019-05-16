@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <template id="my-drop-down">
+        <style>
+            .menu-wrap {
+                width: 20.8334vw;
+                display: block;
+                background-color: transparent;
+                font-family: 'ExtraLight';
+                user-select: none;
+                margin: 20px 40px;
+            }
+
+            .menu-label {
+                font-size: 1.2em;
+                color: rgba(227, 141, 39, .8);
+                padding: 1% 0% 2.5% 7%;
+            }
+
+            .menu-head {
+                border: 1px solid #e38d27;
+            }
+
+            .menu-head,
+            .menu-body {
+                background-color: rgba(0, 0, 0, .6);
+            }
+
+            .menu-head,
+            ::slotted(.menu-option) {
+                min-height: 2.2vw;
+            }
+
+            .current-choice {
+                color: #fff;
+                height: 2.2vw;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                padding: .7vw .1vw .1vw 1.7vw;
+            }
+
+            .current-choice,
+            ::slotted(.menu-option) {
+                text-transform: capitalize;
+                font-size: 1.2vw;
+            }
+
+            .menu-body {
+                max-height: 13vw;
+                overflow-y: scroll;
+                overflow-x: hidden;
+            }
+
+            ::slotted(.menu-option) {
+                color: rgba(255, 255, 255, .3);
+                position: relative;
+                padding-left: 1.7vw;
+                display: flex;
+                align-items: center;
+                transition: padding .5s linear, background-color .25s linear, color .25s linear;
+            }
+
+            ::slotted(.menu-option::after) {
+                content: '';
+                width: 100%;
+                height: 1px;
+                background-color: rgba(255, 255, 255, .15);
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+
+            ::slotted(.menu-option:hover) {
+                background-color: #e38d27;
+                color: #fff;
+                padding-left: 12%;
+            }
+
+            .menu-body::-webkit-scrollbar {
+                width: 2.292vw;
+            }
+
+            .menu-body::-webkit-scrollbar-thumb {
+                background-color: #e38d27;
+                border: .78125vw solid rgba(0, 0, 0, 0);
+                background-clip: padding-box;
+            }
+
+            .menu-body::-webkit-scrollbar-track {
+                background-color: #111;
+                border: .78125vw solid black;
+            }
+        </style>
+        <div id="my-menu" class="menu-wrap">
+            <div class="menu-label">
+                <slot name="title">标题</slot>
+            </div>
+            <div class="menu-head">
+                <div class="current-choice">
+                    <slot name="current-choice">当前选择</slot>
+                </div>
+            </div>
+            <div id="menu-body" class="menu-body">
+                <slot></slot>
+            </div>
+        </div>
+    </template>
+
+
+    <drop-down>
+        <label slot='title'>选择国家</label>
+        <label slot='current-choice'>美国</label>
+        <div class="menu-option">中国</div>
+        <div class="menu-option">美国</div>
+        <div class="menu-option">日本</div>
+    </drop-down>
+
+    <drop-down>
+        <label slot='title'>选择语言</label>
+        <label slot='current-choice'>Euskara</label>
+        <div class="menu-option">English</div>
+        <div class="menu-option">Deutsch</div>
+        <div class="menu-option">Espanol</div>
+        <div class="menu-option">Magyar</div>
+        <div class="menu-option">Dansk</div>
+        <div class="menu-option">Euskara</div>
+        <div class="menu-option">Hrvatski</div>
+        <div class="menu-option">Italiano</div>
+    </drop-down>
+
+
+    <drop-down>
+        <label slot='title'>选择型号</label>
+        <label slot='current-choice'>100</label>
+        <div class="menu-option">100</div>
+        <div class="menu-option">101</div>
+        <div class="menu-option">102</div>
+        <div class="menu-option">103</div>
+        <div class="menu-option">104</div>
+        <div class="menu-option">105</div>
+        <div class="menu-option">106</div>
+        <div class="menu-option">107</div>
+        <div class="menu-option">108</div>
+        <div class="menu-option">109</div>
+        <div class="menu-option">110</div>
+        <div class="menu-option">111</div>
+        <div class="menu-option">112</div>
+        <div class="menu-option">113</div>
+        <div class="menu-option">114</div>
+        <div class="menu-option">115</div>
+        <div class="menu-option">116</div>
+        <div class="menu-option">117</div>
+        <div class="menu-option">118</div>
+        <div class="menu-option">119</div>
+    </drop-down>
+
+    <script src="./app.js"></script>
+
+</body>
+
+</html>
